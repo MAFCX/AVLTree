@@ -24,7 +24,7 @@ public class AvlTeste {
 
     Node raiz;
 
-    //Função responsável por obter o altura da arvore
+    //Função responsável por obter a altura da arvore
     int altura(Node no) {
         if (no == null) {
             return 0;
@@ -65,13 +65,13 @@ public class AvlTeste {
 
         //Atuliza a altura da arvore
         x.altura = max(altura(x.esquerda), altura(x.direita) + 1);
-        x.altura = max(altura(y.esquerda), altura(y.direita) + 1);
+        y.altura = max(altura(y.esquerda), altura(y.direita) + 1);
 
-        //Returna uma nova raiz
+        //Retorna uma nova raiz
         return y;
     }
 
-    //Obtem o balanceamento do nó passado como parametro
+    //Obtem o balanceamento de um nó passado como parametro
     int Balanco(Node no) {
         if (no == null) {
             return 0;
@@ -93,7 +93,7 @@ public class AvlTeste {
             return node;
         }
 
-        //Atualiza a altura dos nós ancetrais
+        //Atualiza a altura do nó ancetral
         node.altura = 1 + max(altura(node.esquerda), altura(node.direita));
 
         //Verifica atraves de um balanceamento se o no ancestral esta desbalanceado
@@ -113,7 +113,7 @@ public class AvlTeste {
 
         //Terceiro caso -> Rotação Dupla a Direita
         if (balance > 1 && valor > node.esquerda.valor) {
-            node.esquerda = rotacaoEsquerda(node.direita);
+            node.esquerda = rotacaoEsquerda(node.esquerda);
             return rotacaoDireita(node);
         }
 
